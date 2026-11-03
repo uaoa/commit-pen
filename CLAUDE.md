@@ -4,7 +4,7 @@
 
 ## Про проект
 
-VS Code розширення **Commit Pen** (ID `ZakhariiMelnyk.commit-pen`; раніше `ZakhariiMelnyk.claude-git-commit`, заблоковане Marketplace; репозиторій `uaoa/commit-pen`) — генерує повідомлення комітів через Claude AI (CLI або API). Публікується в VS Code Marketplace під publisher `ZakhariiMelnyk`.
+VS Code розширення **Commit Pen** (ID `ZakhariiMelnyk.claude-git-commit` — не змінювати, Marketplace вимагає, щоб `name` збігався з ID наявного розширення; репозиторій `uaoa/commit-pen`) — генерує повідомлення комітів через Claude AI (CLI або API). Публікується в VS Code Marketplace під publisher `ZakhariiMelnyk`.
 
 - Точка входу: [src/extension.ts](src/extension.ts)
 - Білд: webpack → [dist/extension.js](dist/extension.js)
@@ -89,7 +89,7 @@ npx vsce package             # створити .vsix
 
 ## Файли, яких НЕ чіпати без потреби
 - `icon.png`, назва та README — лістинг блокували тричі: за помаранчеву, а потім блакитну зірочку Claude і за «Claude» у назві. Ніякої зірочки в іконці, ніякого «Claude» в displayName, назвах налаштувань і URL. «Claude Code» допустимо лише в описі й keywords як опис сумісності. Не копіювати тексти чи скриншоти інших розширень
-- `name` (`commit-pen`) — це ID розширення, зміна створює нове розширення в Marketplace
+- `name` (`claude-git-commit`) — це ID розширення. Зміна створює нове розширення, а оновлення наявного падає з помилкою «extension name supplied in the path must match»
 - ID команд `commit-pen.*` і ключі `commitPen.*`. Старі `claudeCommit.*` один раз копіюються в нові під час активації ([src/utils/legacySettings.ts](src/utils/legacySettings.ts)), не видаляти цю міграцію без потреби
 - `package.json` поле `version` — керується релізним процесом
 - `.vscodeignore` — впливає на розмір пакета, перевіряти тест-пакуванням після змін
